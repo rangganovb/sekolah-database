@@ -32,3 +32,45 @@ CREATE TABLE nilai (
 -- public.nilai foreign keys
 
 ALTER TABLE public.nilai ADD CONSTRAINT fk_siswa FOREIGN KEY (siswa_id) REFERENCES siswa(id);
+
+INSERT INTO public.siswa (nama,umur,jurusan) VALUES
+	 ('Andi',16,'IPA'),
+	 ('Budi',17,'IPS'),
+	 ('Rika',16,'IPA'),
+	 ('Nadia',16,'IPS'),
+	 ('Putra',17,'IPA');
+
+INSERT INTO public.nilai (siswa_id,mata_pelajaran,nilai) VALUES
+	 (1,'Matematika',85),
+	 (1,'Fisika',90),
+	 (2,'Ekonomi',88),
+	 (2,'Geografi',82),
+	 (3,'Biologi',95),
+	 (3,'Matematika',89),
+	 (3,'Fisika',80),
+	 (4,'Ekonomi',90),
+	 (4,'Sosiologi',85),
+	 (5,'Biologi',75);
+	 (5,'Kimia',88);
+
+     INSERT INTO siswa (nama) VALUES
+	 ('Andi'),
+	 ('Budi'),
+	 ('Rika'),
+	 ('Nadia'),
+	 ('Putra');
+
+    INSERT INTO siswa (nama) VALUES
+	 ('Andi'),
+	 ('Rika'),
+	 ('Putra');
+
+    INSERT INTO "select siswa.nama, AVG(nilai.nilai) as rata_nilai
+    from siswa
+    join nilai on siswa.id = nilai.siswa_id
+    group by siswa.nama" (nama,rata_nilai) VALUES
+	 ('Andi',87.5000000000000000),
+	 ('Putra',81.5000000000000000),
+	 ('Rika',88.0000000000000000),
+	 ('Budi',85.0000000000000000),
+	 ('Nadia',87.5000000000000000);
