@@ -15,8 +15,6 @@ CREATE TABLE siswa (
 	CONSTRAINT siswa_pkey PRIMARY KEY (id)
 );
 
--- public.nilai definition
-
 -- Drop table
 
 -- DROP TABLE nilai;
